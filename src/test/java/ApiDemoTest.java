@@ -1,3 +1,5 @@
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -8,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -77,6 +80,66 @@ public class ApiDemoTest {
         Thread.sleep(2000);
        // WebDriverWait wait=new WebDriverWait(driver, 10);
         //System.out.println(wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@text, '更新')]"))).getText());
+    }
+
+    @Test
+    public void testRotate() throws InterruptedException {
+        driver.rotate(ScreenOrientation.LANDSCAPE);
+        driver.rotate(ScreenOrientation.PORTRAIT);
+        driver.findElementByXPath("//*[@text='App']").click();
+        driver.navigate().back();
+        driver.openNotifications();
+        Thread.sleep(2000);
+    }
+
+    @Test
+    public void testScrollTo(){
+      driver.findElementByAccessibilityId("Views").click();
+      AndroidElement list = driver.findElement(By.id("android:id/list"));
+      MobileElement radioGroup = list.findElement(MobileBy.
+              AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(" +
+                      "new UiSelector().text(\"Radio Group\"));"));
+    }
+
+
+    @Test
+    public void testLogs(){
+        driver.manage().logs().getAvailableLogTypes();
+        for(Object obj :driver.manage().logs().get("logcat").getAll().toArray()){
+               System.out.println("testlogs======="+obj.toString());
+        }
+    }
+
+    @Test
+    public void testPerformance() throws Exception {
+
+        System.out.println(driver.getSupportedPerformanceDataTypes());
+        System.out.println(driver.getPerformanceData("io.appium.android.apis","memoryinfo",10));
+        System.out.println(driver.getPerformanceData("io.appium.android.apis","cpuinfo",10));
+        System.out.println(driver.getPerformanceData("io.appium.android.apis","batteryinfo",10));
+        System.out.println(driver.getPerformanceData("io.appium.android.apis","networkinfo",10));
+
+    }
+
+    @Test
+    public void testWebView(){
+        driver.findElementByAccessibilityId("View").click();
+        AndroidElement list = driver.findElement(By.id("android:id/list"));
+        MobileElement webview = list.findElement(MobileBy.
+                AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(" +
+                        "new UiSelector().text(\"webView\"));"));
+        webview.click();
+        driver.getContextHandles();
+        for (AndroidElement element :driver.findElementsByXPath("//*")) {
+            System.out.println(element.getTagName());
+            System.out.println(element.getText());
+        }
+        driver.context(driver.getContextHandles().toArray()[1].toString());
+
+        for (AndroidElement element :driver.findElementsByXPath("//*")) {
+            System.out.println(element.getTagName());
+            System.out.println(element.getText());
+        }
     }
 
     @After

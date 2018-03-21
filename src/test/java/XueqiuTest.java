@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -33,8 +34,10 @@ public class XueqiuTest {
         desiredCapabilities.setCapability("deviceName", "XX");
         desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
         desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
+        desiredCapabilities.setCapability("automationName","uiautomator2");
         URL remoteUrl = new URL("http://localhost:4723/wd/hub");
         driver = new AndroidDriver(remoteUrl, desiredCapabilities);
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
     }
 
 
@@ -101,6 +104,14 @@ public class XueqiuTest {
         WebDriverWait wait=new WebDriverWait(driver, 10);
         System.out.println(wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@text, '更新')]"))).getText());
     }
+
+    @Test
+    public void testWebView(){
+        driver.findElementByXPath("//*[@text='交易']").click();
+        System.out.println(driver.getContextHandles());
+    }
+
+
 
     public WebElement locate(String loacter){
         try{
