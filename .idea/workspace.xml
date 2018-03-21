@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e45a413b-70ee-46a9-a987-7aa623c262de" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/appiumTest.iml" afterPath="$PROJECT_DIR$/appiumTest.iml" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ApiDemoTest.java" afterPath="$PROJECT_DIR$/src/test/java/ApiDemoTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/XueqiuTest.java" afterPath="$PROJECT_DIR$/src/test/java/XueqiuTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,8 +29,8 @@
       <file leaf-file-name="XueqiuTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/XueqiuTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="107" column="4" lean-forward="true" selection-start-line="107" selection-start-column="4" selection-end-line="111" selection-end-column="5" />
+            <state relative-caret-position="960">
+              <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,8 +41,8 @@
       <file leaf-file-name="ApiDemoTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ApiDemoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="124" column="30" lean-forward="true" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+            <state relative-caret-position="249">
+              <caret line="151" column="53" lean-forward="false" selection-start-line="151" selection-start-column="53" selection-end-line="151" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -425,7 +423,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1520860024699</updated>
-      <workItem from="1521597249128" duration="8179000" />
+      <workItem from="1521597249128" duration="10034000" />
     </task>
     <servers />
   </component>
@@ -462,7 +460,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8179000" />
+    <option name="totallyTimeSpent" value="10034000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1911" y="-9" width="1384" height="786" extended-state="6" />
@@ -785,8 +783,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/XueqiuTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="107" column="4" lean-forward="true" selection-start-line="107" selection-start-column="4" selection-end-line="111" selection-end-column="5" />
+        <state relative-caret-position="960">
+          <caret line="106" column="0" lean-forward="true" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -795,8 +793,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ApiDemoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="124" column="30" lean-forward="true" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+        <state relative-caret-position="249">
+          <caret line="151" column="53" lean-forward="false" selection-start-line="151" selection-start-column="53" selection-end-line="151" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -5,16 +5,18 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.ScreenOrientation;
+import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.FileNameMap;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -32,6 +34,9 @@ public class ApiDemoTest {
         desiredCapabilities.setCapability("appPackage", "io.appium.android.apis");
         desiredCapabilities.setCapability("appActivity", ".ApiDemos");
         desiredCapabilities.setCapability("automationName", "uiautomator2");
+        desiredCapabilities.setCapability("dontStopAppOnReset",true);
+        desiredCapabilities.setCapability("noReset",true);
+        desiredCapabilities.setCapability("fullReset",false);
         URL remoteUrl = new URL("http://localhost:4723/wd/hub");
         driver = new AndroidDriver(remoteUrl, desiredCapabilities);
     }
@@ -140,6 +145,23 @@ public class ApiDemoTest {
             System.out.println(element.getTagName());
             System.out.println(element.getText());
         }
+    }
+
+    @Test
+    public void testNotStop() throws InterruptedException {
+        //增加3个配置 dontStopAppOnReset noReset fullReset
+        for (AndroidElement element:driver.findElementsByXPath("//*")) {
+            System.out.println(element.getText());
+        }
+        Thread.sleep(2000);
+        //driver.findElementByAccessibilityId("Buttons");
+    }
+
+    @Test
+    public void saveScreen() throws IOException {
+        File desc = new File(System.currentTimeMillis()+".png");
+        File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(src,desc);
     }
 
     @After
