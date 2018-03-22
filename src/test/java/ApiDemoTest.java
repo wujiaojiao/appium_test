@@ -126,30 +126,10 @@ public class ApiDemoTest {
 
     }
 
-    @Test
-    public void testWebView(){
-        driver.findElementByAccessibilityId("View").click();
-        AndroidElement list = driver.findElement(By.id("android:id/list"));
-        MobileElement webview = list.findElement(MobileBy.
-                AndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(" +
-                        "new UiSelector().text(\"webView\"));"));
-        webview.click();
-        driver.getContextHandles();
-        for (AndroidElement element :driver.findElementsByXPath("//*")) {
-            System.out.println(element.getTagName());
-            System.out.println(element.getText());
-        }
-        driver.context(driver.getContextHandles().toArray()[1].toString());
-
-        for (AndroidElement element :driver.findElementsByXPath("//*")) {
-            System.out.println(element.getTagName());
-            System.out.println(element.getText());
-        }
-    }
 
     @Test
     public void testNotStop() throws InterruptedException {
-        //增加3个配置 dontStopAppOnReset noReset fullReset
+        //增加3个 配置 dontStopAppOnReset noReset fullReset
         for (AndroidElement element:driver.findElementsByXPath("//*")) {
             System.out.println(element.getText());
         }
@@ -158,6 +138,15 @@ public class ApiDemoTest {
     }
 
     @Test
+    public void testScreenShot() throws IOException {
+        driver.findElementByAccessibilityId("Views").click();
+        saveScreen();
+        System.out.println(driver.startRecordingScreen());
+        driver.findElementByAccessibilityId("Buttons").click();
+        System.out.println(driver.stopRecordingScreen());
+    }
+
+
     public void saveScreen() throws IOException {
         File desc = new File(System.currentTimeMillis()+".png");
         File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
